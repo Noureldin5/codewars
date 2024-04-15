@@ -1,4 +1,5 @@
 package com.example.codewars.controller;
 
-public class TaskController {
+public class TaskController
+{
 }

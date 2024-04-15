@@ -1,7 +1,7 @@
 package com.example.codewars.service.user;
 
 import com.example.codewars.dto.user.UserRegisterRequest;
-import com.example.codewars.dto.user.UserRegisterResponse;
+import com.example.codewars.dto.user.UserResponse;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.stereotype.Service;
 
@@ -13,7 +13,7 @@ public class UserServiceImpl implements UserService{
     }
 
     @Override
-    public UserRegisterResponse getById(Long id) {
+    public UserResponse getById(Long id) {
         return null;
     }
 
