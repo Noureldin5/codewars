@@ -13,23 +13,23 @@ import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
 
-    @Configuration
-    @EnableWebSecurity
-    @RequiredArgsConstructor
-    public class SecurityConfig {
-        private final JwtAuthFilter jwtAuthFilter;
-        private final AuthenticationProvider authenticationProvider;
-        @Bean
-        public SecurityFilterChain filterChain(HttpSecurity http) throws Exception{
-            http
-                    .csrf(AbstractHttpConfigurer::disable)
-                    .sessionManagement(sessionManagement -> sessionManagement
-                            .sessionCreationPolicy(SessionCreationPolicy.STATELESS))
-                    .authorizeHttpRequests(auth -> auth
-                            .anyRequest().permitAll()
-                    )
-                    .authenticationProvider(authenticationProvider)
-                    .addFilterBefore(jwtAuthFilter, UsernamePasswordAuthenticationFilter.class);
-            return http.build();
-        }
+@Configuration
+@EnableWebSecurity
+@RequiredArgsConstructor
+public class SecurityConfig {
+    private final JwtAuthFilter jwtAuthFilter;
+    private final AuthenticationProvider authenticationProvider;
+    @Bean
+    public SecurityFilterChain filterChain(HttpSecurity http) throws Exception{
+        http
+                .csrf(AbstractHttpConfigurer::disable)
+                .sessionManagement(sessionManagement -> sessionManagement
+                        .sessionCreationPolicy(SessionCreationPolicy.STATELESS))
+                .authorizeHttpRequests(auth -> auth
+                        .anyRequest().permitAll()
+                )
+                .authenticationProvider(authenticationProvider)
+                .addFilterBefore(jwtAuthFilter, UsernamePasswordAuthenticationFilter.class);
+        return http.build();
     }
+}

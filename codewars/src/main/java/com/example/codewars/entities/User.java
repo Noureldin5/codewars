@@ -31,6 +31,7 @@ public class User implements UserDetails{
     private Integer answeredTasks;
     private String verificationCode;
 
+
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
     private List<Task> tasks;
 

@@ -1,5 +1,6 @@
 package com.example.codewars.controller;
 
+import com.example.codewars.dto.task.NewTaskRequest;
 import com.example.codewars.dto.user.UserRegisterRequest;
 import com.example.codewars.dto.user.UserResponse;
 import com.example.codewars.service.user.UserService;
@@ -23,5 +24,9 @@ public class UserController {
     public void delete(@PathVariable Long id ){
         userService.deleteById(id);
 
+    }
+    @PostMapping("/task/add")
+    public String addTask(@RequestHeader("Authorization") String token, @RequestBody NewTaskRequest request){
+        return userService.addTask(token, request);
     }
 }

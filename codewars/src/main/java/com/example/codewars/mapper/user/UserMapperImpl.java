@@ -10,10 +10,14 @@ public class UserMapperImpl implements UserMapper {
     public UserResponse toDto(User user) {
         UserResponse userRegisterResponse = new UserResponse();
         userRegisterResponse.setId(user.getId());
+        userRegisterResponse.setUsername(user.getUsername());
+        userRegisterResponse.setEmail(user.getEmail());
+        userRegisterResponse.setPassword(user.getPassword());
+        userRegisterResponse.setCreatedTasks(user.getCreatedTasks());
+        userRegisterResponse.setAnsweredTasks(user.getAnsweredTasks());
+        userRegisterResponse.setRole(user.getRole());
+
+
         return userRegisterResponse;
-
-
-
-
     }
 }
